@@ -1,0 +1,357 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo 
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+  a4paper, 
+%   showframes,
+%   vline=2.2em,
+%   maincolor=cvgreen,
+%   sectioncolor=red,
+%   subsectioncolor=orange,
+%   itemtextcolor=black!80,
+%   sidebarwidth=0.4\paperwidth,
+%   topbottommargin=0.03\paperheight,
+%   leftrightmargin=20pt,
+%   proilepicsize=4.5cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+% \newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+  % defaut font size is \large, so adjust to harmonize with sidebar layout
+  bubble center node font = \footnotesize,
+  bubble node font = \footnotesize,
+  % default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+  bubble center node size = 0.4\sidebartextwidth,
+  bubble node size = 0.25\sidebartextwidth,
+  distance center/other bubbles = 1.5em,
+  % set center bubble color
+  bubble center node color = maincolor!70,
+  % define the list of colors usable in the diagram
+  set color list = {maincolor!10, maincolor!40,
+  maincolor!20, maincolor!60, maincolor!35},
+  % sets the opacity at which the bubbles are shown
+  bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{\huge{Atıl} \Huge{i}\huge{lerialkan}}
+% job title/career
+\cvjobtitle{Software Design Engineer,\\[0.2em] \large{Embedded Software Developer}}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/218965veskare.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{January 2, 1991}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Ankara, Turkey}
+% phone number
+\cvphone{+90 506 422 01 66}
+% personal website
+% \cvsite{https://pandascience.net}
+% email address
+\cvmail{atililerialkan@gmail.com}
+% Linkedin user account
+\cvlinkedin{atililerialkan}
+% Github user account
+\cvgithub{atilileri}
+% pgp key
+% \cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+%\cvcustomdata{\faFlag}{Turkey}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	\profilesection{\Large{About Me}}
+	\aboutme{
+    In my 8 year software engineering career, I have taken part in 5 different aerospace and defense programs. I contributed to software development activities in all life-cycle phases, according to DO-178C. I am quite familiar with:\\
+    - \textbf{Avionics}
+     \textit{(e.g. IFF Transponder, CVDR)},\\
+    - High and low-level software development in \textbf{Safety Critical Systems}
+     \textit{(e.g. Bootloader, BSP\&IO Drivers, Application Level Software)},\\
+    - \textbf{Graphical User Interface} development
+     \textit{(e.g. Qt, Scade Suite, VAPS XT)},\\
+    - \textbf{Software Development Life-cycle Methodologies}
+     \textit{(e.g. Agile, Waterfall, V-Model)}.\\ \\
+    In my master’s program, I was highly involved with \textbf{Machine Learning} and \textbf{Deep Learning} applications on multimedia data \textit{(e.g. Video, Image, Sound)}. My thesis is focused on the \textbf{classification of sound signals}, which can have a great extent in smart cockpit applications.\\ \\
+    I have always been an active person, pushing my boundaries to learn more every day. I believe working and solving problems in an international company would be the best next step and a unique opportunity for my career. Sharing a workspace with people from different cultures and disciplines that have the same interests is a great chance to develop myself both as a person and as an engineer.\\
+    }
+}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+
+	\profilesection{\Large{Programming Languages}}
+	\pointskill{\faCaretRight}{\textcolor{black}{C}}{4}
+	\pointskill{\faCaretRight}{\textcolor{black}{C++}}{4}
+	\pointskill{\faCaretRight}{\textcolor{black}{Python}}{3}
+	\pointskill{\faCaretRight}{\textcolor{black}{C\#}}{2}
+	\pointskill{\faCaretRight}{\textcolor{black}{Java}}{1}
+	\pointskill{\faCaretRight}{\textcolor{black}{Assembly}}{1}
+	
+    \profilesection{\Large{Skills \& Knowledge}}
+        \skilltagpri{ARINC 429}
+        \skilltagpri{ARINC 653}
+        \skilltagpri{MIL-STD-1553}
+        \skilltagpri{ARINC 661}
+        \skilltagpri{DO-178}
+        \skilltagsec{DO-248}
+        \skilltagpri{DO-330}
+        \skilltagsec{DO-331}
+        \skilltagsec{DO-332}
+        \skilltagsec{DO-297}
+        \skilltagsec{AADL}
+        \skilltagsec{SysML}
+        \skilltagsec{FACE}
+        \skilltagsec{MOSA}
+        \skilltagsec{Open Architecture}
+        \skilltagsec{IMA}
+        \skilltagpri{U-Boot}
+        \skilltagpri{Serial}
+        \skilltagsec{RS-232}
+        \skilltagsec{RS-422}
+        \skilltagsec{RS-485}
+        \skilltagpri{I2C}
+        \skilltagpri{USB}
+        \skilltagpri{Ethernet}
+        \skilltagsec{PCI}
+        \skilltagsec{SPI}
+        \skilltagsec{CAN}
+        \skilltagsec{UART}
+        \skilltagpri{Flash}
+        \skilltagpri{NVRAM}
+        \skilltagsec{OpenGL}
+        \skilltagpri{Integrity tuMP}
+        \skilltagpri{RTOS}
+        \skilltagpri{AdaMULTI}
+        \skilltagpri{Enterprise Architect}
+        \skilltagpri{VAPS XT}
+        \skilltagpri{Scade Suite}
+        \skilltagpri{Qt Framework}
+        \skilltagsec{.NET Framework}
+        \skilltagpri{Jira}
+        \skilltagpri{Confluence}
+        \skilltagsec{Crucible}
+        \skilltagsec{Jenkins}
+        \skilltagpri{DOORS}
+        \skilltagpri{Svn}
+        \skilltagpri{Git}
+        \skilltagpri{Agile}
+        \skilltagpri{Waterfall}
+        \skilltagpri{V-Model}
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	\profilesection{\Large{Foreign Languages}}
+	\pointskill{\flag{GB.png}}{English}{4}
+
+
+	\profilesection{\Large{Hobbies}}
+        \textcolor{black}{I was a professional \textit{American Football} player for the last decade and a professional \textit{Basketball} player for 5 years. I believe taking responsibility in those associations and wearing the national team uniform was a huge gain for both my professional life and communication skills.\\
+        }
+        \\
+	    \skill{\faMedal}{Sports}
+    	    \skill[1em]{\faFootballBall}{American Football\\Turkish National Team Player}
+    	    \skill[1em]{\faBasketballBall}{Basketball\\Licensed College Player}
+	    \skill{\faTv}{Movies, Tv Shows}
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Working Experience}
+\begin{cvtable}[1.5]
+    \cvitem{2021-current}{IMODE Team Lead}{\href{https://www.tusas.com/en/}{Turkish Aerospace}}{
+    	IMODE, Kit Development\\
+    	Project covers maintenance of the current tool and developing additional features, including following key modules:
+        \begin{itemize}
+            \item{ARINC 661 Toolkit}
+    	    \item{Architecture Design Toolkit (AADL)}
+    	    \item{Tool Qualification Kit}
+    	    \item{Software Development Kit}
+        \end{itemize}
+        Roles and responsibilities in the project:
+        \begin{itemize}
+            \item{Scrum Master, Sprint Planning}
+    	    \item{Researching new technologies and standards in the project path, identifying challenging topics and risks}
+    	    \item{Co-instructor at \textit{Model-Based Design} lecture at \textit{Yildiz Technical University Avionics Engineering} master's programme}
+        \end{itemize}
+    }
+	\cvitem{2019 -- 2021}{Senior Software Design Engineer}{\href{https://www.tusas.com/en/}{Turkish Aerospace}}{
+    IMODE: Integrated Model-Based Design \& Development Environment, Tool Development.\\
+    IMODE is a tool for model-based design and development, which is developed by Turkish Aerospace, as a competition to VAPS and SCADE (Suite). 
+    \begin{itemize}
+        \item{Development of plans, standards, design, requirements and source code}
+        \item{Participated modules:
+        \begin{itemize}
+            \item{Project \& Model Management}
+            \begin{itemize}
+                \item{Save \& Load (XML, JSON)}
+                \item{Referencing}
+            \end{itemize}
+            \item{Template-Based Code Generation}
+            \begin{itemize}
+                \item{Implementation of a Code Generator for C Language (based on the template)}
+            \end{itemize}
+            \item{License Management (Public Key Authentication)}
+            \begin{itemize}
+                \item{Node-locked}
+                \item{Floating}
+            \end{itemize}
+            \item{Graphical and logical model designs for \textit{Advanced Jet Trainer and Light Attack Aircraft, PVI (Pilot Vehicle Interface) Development} project}
+        \end{itemize}
+        }
+        %\item{Responsibilities as a Team Lead:}
+        %\item{Development of plans, standards, design, requirements and source code for modules: Project \& Model Management (save/load/parsing/referencing), Graphical and Logical Model Architecture, Code Generation (including template architecture). c template ornek olarak\\
+        \item{Implemented in C++ with Qt Framework.}
+    \end{itemize}
+    }
+	\cvitem{2017 -- 2019}{Software Design Engineer}{\href{https://www.aselsan.com.tr/en}{Aselsan} (on behalf of \href{https://www.tusas.com/en/}{Turkish Aerospace})}{
+		New Generation Trainer Aircraft, OFP Development
+		\begin{itemize}
+		    \item{Development of software requirements and source code of the following modules:
+            \begin{itemize}
+                \item{IFF (Identification Friend or Foe) Transponder}
+                \item{CVRFDR (Cockpit Voice (CVR) and Flight Data (FDR) Recorder)}
+                \item{Initial development of some radar pages using VAPS}
+            \end{itemize}}
+            \item{Implemented in C++ using IBM Rational Rhapsody.}
+            \item{Supported verification activities.}
+		\end{itemize}
+	}
+\end{cvtable}
+
+\newpage
+\makebacksidebar
+
+\begin{cvtable}[1.5]
+	\cvitem{2016 -- 2017}{Software Design Engineer}{\href{https://www.tusas.com/en/}{Turkish Aerospace}}{
+	    New Generation Trainer Aircraft, LRU Firmware
+        \begin{itemize}
+            \item{Development of source code for modules: 
+            \begin{itemize}
+                \item{Bootloader}
+                \item{I2C Device Driver}
+            \end{itemize}
+            for Symbol Generator (SG) and Rudder Assistant System (RAS) hardwares.}
+            \item{Source code implemented in C.}
+        \end{itemize}
+		Military Transport Aircraft, Avionics Modernization
+        \begin{itemize}
+            \item{Development of an ARINC 429 data simulator tool for the verification environment using .NET Framework in C\#.}
+        \end{itemize}
+	}
+    \cvitem{2014 -- 2016}{Software Engineer}{\href{https://www.ayesas.com/en}{AYESAŞ}}{
+    	New Generation Trainer Aircraft, LRU Firmware
+        \begin{itemize}
+            \item{Development of requirements, for the firmwares of the following LRUs (Line Replaceable Unit) using IBM Rational DOORS:
+            \begin{itemize}
+                \item{Intercommunication System (ICS)}
+                \item{Multi-Function Display (MFD)}
+                \item{Keyboard/Cockpit Display Unit (KDU/CDU)}
+            \end{itemize}}
+        \end{itemize}
+        MALE class Unmanned Aerial Vehicle, BSP \& IO Drivers
+        \begin{itemize}
+            \item{Development of plans, standards, design, requirements and source code for modules: 
+            \begin{itemize}
+                \item{Bootloader (setting up Minimum Processing Environment)}
+                \item{Dataloader (download \& flash application images)}
+                \item{BSP \& IO Device Drivers (Ethernet, Serial, Flash, NVRAM)}
+            \end{itemize}}
+            \item{Source code implemented in C and Assembly.}
+            \item{Also participated in verificiation activities.}
+        \end{itemize}
+    }
+	\cvitem{2013 -- 2014}{Software Engineer}{\href{https://www.bilisim.com.tr}{Bilişim AŞ}}{
+        DGCA Information Administration System
+        \begin{itemize}
+            \item{Development, maintenance and support using Java Server Faces.}
+        \end{itemize}
+        Business Intelligence Application
+        \begin{itemize}
+            \item{Development of the R\&D project using PHP, Java and Javascript.}
+            \item{Multiple database management systems like OracleDB, MySQL and MsSQL were used.}
+        \end{itemize}
+    }
+\end{cvtable}
+
+\cvsection{Education}
+\begin{cvtable}[1.5]
+	\cvitem{2016 -- 2019}{MSc. at Multimedia Computing}{Middle East Technical University}
+		{Courses: Signal Processing, Machine Learning, Motion Capture, Speech Recognition, Image Processing, Multimedia Standards, Parallel Programming on GPUs, Deep Learning.\\Used Python for development.}
+	\cvitem{}{Master Thesis}{}
+		{Speaker and Posture Classification using Instantaneous Acoustic Features of Breath Signals}
+	\cvitem{2009 -- 2013}{BSc. at Computer Engineering}{Hacettepe University}
+		{Focus: Operating Systems, Data Structures and Algorithms, Software Design Patterns}
+\end{cvtable}
+
+\cvsection{Publications}
+\begin{cvtable}
+	\cvpubitem{Speaker and Posture Classification using Instantaneous Intraspeech Breathing Features}{Preprint}
+	    {\href{https://arxiv.org/abs/2005.12230}{arXiv:2005.12230}}{2020}
+	\cvpubitem{BreathBase: Intra-Speech Breathing Dataset}{Dataset (Open Access)}
+	    {\href{https://doi.org/10.5281/zenodo.3841039}{10.5281/zenodo.3841039}}{2020}
+\end{cvtable}
+
+\cvsection{Certifications}
+\begin{cvtable}
+	\cvitem{2017}{Deep Learning Fundamentals}{NVIDIA Deep Learning Institute}{}
+	\cvitem{2016}{ALES: 83 (equivalent to GRE: 157, GMAT: 610)}{Exam Score}{}
+	\cvitem{2016}{YDS: 95 (equivalent to TOEFL-IBT: 114, IELTS: 7,5)}{Exam Score}{}
+	\cvitem{2015}{DO-178C Short Courses}{AFuzion Inc}{}
+	\cvitem{2015}{Using DOORS for Requirement Management}{PROYA}{}
+	\cvitem{2014}{Integrity BSP \& IO Drivers}{Green Hills Software}{}
+\end{cvtable}
+
+% \cvsignature
+
+\end{document} 
